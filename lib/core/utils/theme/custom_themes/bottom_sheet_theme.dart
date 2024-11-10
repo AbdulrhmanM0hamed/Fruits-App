@@ -9,7 +9,7 @@ class TBottomSheetTheme {
     modalBackgroundColor: Colors.white,
     constraints: const BoxConstraints(minWidth: double.infinity),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(8),
     ),
   );
 
@@ -19,7 +19,7 @@ class TBottomSheetTheme {
     modalBackgroundColor: Colors.black,
     constraints: const BoxConstraints(minWidth: double.infinity),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(8),
     ),
   );
 }

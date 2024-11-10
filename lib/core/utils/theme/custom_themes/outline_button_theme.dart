@@ -11,7 +11,7 @@ class TOutlinedButtonTheme {
     padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
     textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(8),
     ),
   );
 
@@ -22,7 +22,7 @@ class TOutlinedButtonTheme {
     padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
     textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(8),
     ),
   );
 }
