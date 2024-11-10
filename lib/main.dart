@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/helpers_functions/on_genrated_routes.dart';
+import 'package:e_commerce/core/utils/theme/theme.dart';
 import 'package:e_commerce/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,10 @@ class FruitHub extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+      theme: TAppTheme.lightTheme,
+      themeMode: ThemeMode.system,
+      darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenratedRoutes,
       initialRoute: SplashView.routeName,
