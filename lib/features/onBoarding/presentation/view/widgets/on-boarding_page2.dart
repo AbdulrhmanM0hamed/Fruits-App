@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/login/presentation/view/login.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -28,7 +29,7 @@ class OnboardingPage2 extends StatelessWidget {
                 const SizedBox(height: 40),
                  Text(
                   S.current!.searchMarketing,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
@@ -50,7 +51,7 @@ class OnboardingPage2 extends StatelessWidget {
             right: 20,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.pushReplacementNamed(context, '/home');
+                Navigator.pushReplacementNamed(context, LoginView.routeName);
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 50),

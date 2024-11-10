@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/login/presentation/view/login.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,10 +12,14 @@ class OnboardingPage1 extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 35),
             child: TextButton(
-                onPressed: () {},
-                child: Text(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context,LoginView.routeName);
+                },
+                child: const Text(
                   "تخط",
-                  style: TextStyle(fontSize: 22, color: Colors.black),
+                  style: TextStyle(
+                    fontSize: 22,
+                  ),
                 )),
           ),
           SvgPicture.asset(
@@ -40,16 +45,16 @@ class OnboardingPage1 extends StatelessWidget {
                   children: [
                     Text(
                       S.current!.welcome,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
-                    Text(
+                    const Text(
                       "HUB",
                       style: TextStyle(
                         color: Color(0xffF4A91F),
@@ -58,7 +63,7 @@ class OnboardingPage1 extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    Text(
+                    const Text(
                       "Fruit",
                       style: TextStyle(
                         color: Color(0xff227D48),

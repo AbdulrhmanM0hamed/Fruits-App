@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/login/presentation/view/login.dart';
 import 'package:e_commerce/features/onBoarding/presentation/view/on-boarding_view.dart';
 import 'package:e_commerce/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,10 @@ Route<dynamic> onGenratedRoutes(RouteSettings settings)
      case OnBoardingView.routeName:
       return MaterialPageRoute(
       builder: (context) => const OnBoardingView(),
+    );
+     case LoginView.routeName:
+      return MaterialPageRoute(
+      builder: (context) => const LoginView(),
     );
     
     default:

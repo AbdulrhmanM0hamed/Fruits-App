@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/helpers_functions/on_genrated_routes.dart';
 import 'package:e_commerce/features/onBoarding/presentation/view/on-boarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
