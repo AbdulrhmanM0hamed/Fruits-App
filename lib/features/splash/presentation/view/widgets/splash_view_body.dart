@@ -25,7 +25,7 @@ void initState() {
       crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               SvgPicture.asset('assets/images/plant.svg'),
             ],

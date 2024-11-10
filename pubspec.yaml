@@ -29,7 +29,10 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.8
+  dots_indicator: ^3.0.0
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.0.14
 
@@ -43,6 +46,7 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
+  intl_utils: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -69,14 +73,14 @@ flutter:
   fonts:
     - family: Cairo
       fonts:
-        - assets: assets/fonts/Cairo-Regular.ttf
-          weight: 400
-        - assets: assets/fonts/Cairo-Medium.ttf
-          weight: 500 
-        - assets: assets/fonts/Cairo-SemiBold.ttf
-          weight: 600 
-        - assets: assets/fonts/Cairo-Bold.ttf
+        - asset: assets/fonts/Cairo-Bold.ttf
           weight: 800
+        - asset: assets/fonts/Cairo-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Cairo-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Cairo-SemiBold.ttf
+          weight: 600
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
@@ -86,3 +90,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_intl:
+  enabled: true
