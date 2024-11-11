@@ -1,3 +1,6 @@
+import 'package:e_commerce/core/services/shared_preferences.dart';
+import 'package:e_commerce/core/utils/constants/constants.dart';
+import 'package:e_commerce/features/login/presentation/view/login.dart';
 import 'package:e_commerce/features/onBoarding/presentation/view/on-boarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -37,10 +40,17 @@ void initState() {
   }
   void excuteNavigation()
  {
+  bool isOnboardingViewSeen = Prefs.getBool(KIsOnboardingViewSeen);
    Future.delayed(const Duration(seconds: 2), () {
-    Navigator.pushReplacementNamed( context, OnBoardingView.routeName);
+    
+    if (isOnboardingViewSeen) {
+  Navigator.pushReplacementNamed( context, LoginView.routeName);
+  
+}
+else {
+  Navigator.pushReplacementNamed( context, OnBoardingView.routeName);
   }
-  );
+ });
 }
 }
 

@@ -1,3 +1,8 @@
+import 'package:e_commerce/core/services/shared_preferences.dart';
+import 'package:e_commerce/core/utils/constants/assets.dart';
+import 'package:e_commerce/core/utils/constants/constants.dart';
+import 'package:e_commerce/core/utils/constants/font_manger.dart';
+import 'package:e_commerce/core/utils/constants/styles_manger.dart';
 import 'package:e_commerce/features/login/presentation/view/login.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +15,8 @@ class OnboardingPage2 extends StatelessWidget {
       body: Stack(
         children: [
           SvgPicture.asset(
-            "assets/images/page_view_item2_background_image.svg",
-            height:  MediaQuery.of(context).size.height * 0.6,
+            AssetsManager.pageViewItem2BackgroundImage,
+            height: MediaQuery.of(context).size.height * 0.6,
             width: double.infinity,
             fit: BoxFit.cover,
             alignment: Alignment.topCenter,
@@ -23,23 +28,24 @@ class OnboardingPage2 extends StatelessWidget {
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.2),
                 SvgPicture.asset(
-                  'assets/images/page_view_item2_image.svg',
-                  height: 300,
+                  AssetsManager.pageViewItem2Image,
+                  height: MediaQuery.of(context).size.height * 0.35,
                 ),
                 const SizedBox(height: 40),
-                 Text(
+                Text(
                   S.current!.searchMarketing,
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: getBoldStyle(
+                      fontFamily: FontConstant.cairo,
+                      fontSize: FontSize.size24),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20),
                 Text(
-                 S.current!.Subtitle2 ,
-
-                  style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                  S.current!.Subtitle2,
+                  style: getRegularStyle(
+                      fontFamily: FontConstant.cairo,
+                      fontSize: FontSize.size16,
+                      color: Colors.grey.shade600),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -51,6 +57,8 @@ class OnboardingPage2 extends StatelessWidget {
             right: 20,
             child: ElevatedButton(
               onPressed: () {
+                Prefs.setBool(KIsOnboardingViewSeen, true);
+
                 Navigator.pushReplacementNamed(context, LoginView.routeName);
               },
               style: ElevatedButton.styleFrom(
@@ -59,9 +67,10 @@ class OnboardingPage2 extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
-              child: const Text(
-                '   ابدأ الان',
-                style: TextStyle(fontSize: 18, fontFamily: 'Cairo'),
+              child: Text(
+                S.current!.start,
+                style: getBoldStyle(
+                    fontFamily: FontConstant.cairo, fontSize: FontSize.size18),
               ),
             ),
           ),

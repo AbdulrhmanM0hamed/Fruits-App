@@ -1,3 +1,10 @@
+import 'package:e_commerce/core/services/shared_preferences.dart';
+import 'package:e_commerce/core/utils/constants/assets.dart';
+import 'package:e_commerce/core/utils/constants/constants.dart';
+import 'package:e_commerce/core/utils/constants/font_manger.dart';
+import 'package:e_commerce/core/utils/constants/sizes.dart';
+import 'package:e_commerce/core/utils/constants/styles_manger.dart';
+import 'package:e_commerce/core/utils/constants/values_manger.dart';
 import 'package:e_commerce/features/login/presentation/view/login.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -13,17 +20,19 @@ class OnboardingPage1 extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 35),
             child: TextButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context,LoginView.routeName);
+                  Prefs.setBool(KIsOnboardingViewSeen, true);
+
+                  Navigator.pushReplacementNamed(context, LoginView.routeName);
                 },
-                child: const Text(
+                child: Text(
                   "تخط",
-                  style: TextStyle(
-                    fontSize: 22,
-                  ),
+                  style: getSemiBoldStyle(
+                      fontFamily: FontConstant.cairo,
+                      fontSize: FontSize.size24),
                 )),
           ),
           SvgPicture.asset(
-            "assets/images/page_view_item1_background_image.svg",
+            AssetsManager.pageViewItem1BackgroundImage,
             height: MediaQuery.of(context).size.height * 0.6,
             width: double.infinity,
             fit: BoxFit.cover,
@@ -36,48 +45,48 @@ class OnboardingPage1 extends StatelessWidget {
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height * 0.2),
                 SvgPicture.asset(
-                  'assets/images/page_view_item1_image.svg',
-                  height: 300,
+                  AssetsManager.pageViewItem1Image,
+                  height: MediaQuery.of(context).size.height * 0.35,
                 ),
-                const SizedBox(height: 40),
+                const SizedBox(height: AppSize.s40),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       S.current!.welcome,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: getBoldStyle(
+                          fontFamily: FontConstant.cairo,
+                          fontSize: FontSize.size24),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(
-                      width: 5,
+                      width: AppSize.s4,
                     ),
-                    const Text(
+                    Text(
                       "HUB",
-                      style: TextStyle(
-                        color: Color(0xffF4A91F),
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: getBoldStyle(
+                          fontFamily: FontConstant.cairo,
+                          fontSize: FontSize.size24,
+                          color: Color(0xffF4A91F)),
                       textAlign: TextAlign.center,
                     ),
-                    const Text(
+                    Text(
                       "Fruit",
-                      style: TextStyle(
-                        color: Color(0xff227D48),
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: getBoldStyle(
+                          fontFamily: FontConstant.cairo,
+                          fontSize: FontSize.size24,
+                          color: Color(0xff227D48)),
                       textAlign: TextAlign.center,
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: AppSize.s16),
                 Text(
                   S.current!.Subtitle1,
-                  style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                  style: getRegularStyle(
+                      fontFamily: FontConstant.cairo,
+                      fontSize: FontSize.size16,
+                      color: Colors.grey.shade600),
                   textAlign: TextAlign.center,
                 ),
               ],
