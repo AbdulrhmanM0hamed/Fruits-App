@@ -10,28 +10,43 @@ import 'intl/messages_all.dart';
 
 // ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
 // ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
-// ignore_for_file: avoid_redundant_argument_values
+// ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
 
 class S {
   S();
-  
-  static S? current;
-  
-  static const AppLocalizationDelegate delegate =
-    AppLocalizationDelegate();
+
+  static S? _current;
+
+  static S get current {
+    assert(_current != null,
+        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    return _current!;
+  }
+
+  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name); 
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
+    final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
-      S.current = S();
-      
-      return S.current!;
-    });
-  } 
+      final instance = S();
+      S._current = instance;
 
-  static S? of(BuildContext context) {
+      return instance;
+    });
+  }
+
+  static S of(BuildContext context) {
+    final instance = S.maybeOf(context);
+    assert(instance != null,
+        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    return instance!;
+  }
+
+  static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
 
@@ -184,94 +199,126 @@ class S {
       args: [],
     );
   }
-}
-String get email {
-  return Intl.message(
-    'البريد الالكتروني',
-    name: 'email',
-    desc: '',
-    args: [],
-  );
-}
 
-/// `كلمة المرور`
-String get password {
-  return Intl.message(
-    'كلمة المرور',
-    name: 'password',
-    desc: '',
-    args: [],
-  );
-}
+  /// `تسجيل الدخول`
+  String get loginTitle {
+    return Intl.message(
+      'تسجيل الدخول',
+      name: 'loginTitle',
+      desc: '',
+      args: [],
+    );
+  }
 
-/// `هل نسيت كلمة المرور ؟`
-String get forgotPassword {
-  return Intl.message(
-    'هل نسيت كلمة المرور ؟',
-    name: 'forgotPassword',
-    desc: '',
-    args: [],
-  );
-}
+  /// `abdo`
+  String get abdo {
+    return Intl.message(
+      'abdo',
+      name: 'abdo',
+      desc: '',
+      args: [],
+    );
+  }
 
-/// `لا تمتلك حساب ؟`
-String get noAccount {
-  return Intl.message(
-    'لا تمتلك حساب ؟',
-    name: 'noAccount',
-    desc: '',
-    args: [],
-  );
-}
+  /// `البريد الالكتروني`
+  String get email {
+    return Intl.message(
+      'البريد الالكتروني',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
 
-/// `سجل الان`
-String get signUpNow {
-  return Intl.message(
-    'سجل الان',
-    name: 'signUpNow',
-    desc: '',
-    args: [],
-  );
-}
+  /// `كلمة المرور`
+  String get password {
+    return Intl.message(
+      'كلمة المرور',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
 
-/// `أو`
-String get or {
-  return Intl.message(
-    'أو',
-    name: 'or',
-    desc: '',
-    args: [],
-  );
-}
+  /// `هل نسيت كلمة المرور ؟`
+  String get forgotPassword {
+    return Intl.message(
+      'هل نسيت كلمة المرور ؟',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
 
-/// `تسجيل بواسطة Google`
-String get loginWithGoogle {
-  return Intl.message(
-    'تسجيل بواسطة Google',
-    name: 'loginWithGoogle',
-    desc: '',
-    args: [],
-  );
-}
+  /// `لا تمتلك حساب ؟`
+  String get noAccount {
+    return Intl.message(
+      'لا تمتلك حساب ؟',
+      name: 'noAccount',
+      desc: '',
+      args: [],
+    );
+  }
 
-/// `تسجيل بواسطة Facebook`
-String get loginWithFacebook {
-  return Intl.message(
-    'تسجيل بواسطة Facebook',
-    name: 'loginWithFacebook',
-    desc: '',
-    args: [],
-  );
-}
+  /// `سجل الان`
+  String get signUpNow {
+    return Intl.message(
+      'سجل الان',
+      name: 'signUpNow',
+      desc: '',
+      args: [],
+    );
+  }
 
-/// `تسجيل بواسطة Apple`
-String get loginWithApple {
-  return Intl.message(
-    'تسجيل بواسطة Apple',
-    name: 'loginWithApple',
-    desc: '',
-    args: [],
-  );
+  /// `أو`
+  String get or {
+    return Intl.message(
+      'أو',
+      name: 'or',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تسجيل بواسطة Google`
+  String get loginWithGoogle {
+    return Intl.message(
+      'تسجيل بواسطة Google',
+      name: 'loginWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تسجيل بواسطة Facebook`
+  String get loginWithFacebook {
+    return Intl.message(
+      'تسجيل بواسطة Facebook',
+      name: 'loginWithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تسجيل بواسطة Apple`
+  String get loginWithApple {
+    return Intl.message(
+      'تسجيل بواسطة Apple',
+      name: 'loginWithApple',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الاسم الكامل`
+  String get fullName {
+    return Intl.message(
+      'الاسم الكامل',
+      name: 'fullName',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -1,5 +1,7 @@
+import 'package:e_commerce/features/login/presentation/view/forget_password.dart';
 import 'package:e_commerce/features/login/presentation/view/login_view.dart';
 import 'package:e_commerce/features/login/presentation/view/signup_view.dart';
+import 'package:e_commerce/features/login/presentation/view/verification_code_view.dart';
 import 'package:e_commerce/features/onBoarding/presentation/view/on-boarding_view.dart';
 import 'package:e_commerce/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +27,14 @@ Route<dynamic> onGenratedRoutes(RouteSettings settings)
     case SignupView.routeName:
     return MaterialPageRoute(
       builder: (context) => const SignupView(),
+    );
+    case ForgotPasswordView.routeName:
+    return MaterialPageRoute(
+      builder: (context) => const ForgotPasswordView(),
+    );
+     case VerificationCodeView.routeName:
+    return MaterialPageRoute(
+      builder: (context) => const VerificationCodeView(),
     );
     default:
     return MaterialPageRoute(

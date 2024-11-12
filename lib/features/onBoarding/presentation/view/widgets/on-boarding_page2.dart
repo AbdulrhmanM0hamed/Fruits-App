@@ -34,7 +34,7 @@ class OnboardingPage2 extends StatelessWidget {
                 ),
                 const SizedBox(height: 40),
                 Text(
-                  S.current!.searchMarketing,
+                  S.current.searchMarketing,
                   style: getBoldStyle(
                       fontFamily: FontConstant.cairo,
                       fontSize: FontSize.size24),
@@ -42,7 +42,7 @@ class OnboardingPage2 extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  S.current!.Subtitle2,
+                  S.current.Subtitle2,
                   style: getRegularStyle(
                       fontFamily: FontConstant.cairo,
                       fontSize: FontSize.size16,
@@ -60,7 +60,7 @@ class OnboardingPage2 extends StatelessWidget {
               Prefs.setBool(KIsOnboardingViewSeen, true);
 
                 Navigator.pushReplacementNamed(context, LoginView.routeName);
-            }, buttonText: S.current!.start,
+            }, buttonText: S.current.start,
             
             )
           ),
