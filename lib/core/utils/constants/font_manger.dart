@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class FontConstant {
   static const String cairo = "Cairo";
-  static const String gT_Sectra_Fine = "GT Sectra Fine";
 }
 
 class FontWeightManger {

@@ -185,6 +185,94 @@ class S {
     );
   }
 }
+String get email {
+  return Intl.message(
+    'البريد الالكتروني',
+    name: 'email',
+    desc: '',
+    args: [],
+  );
+}
+
+/// `كلمة المرور`
+String get password {
+  return Intl.message(
+    'كلمة المرور',
+    name: 'password',
+    desc: '',
+    args: [],
+  );
+}
+
+/// `هل نسيت كلمة المرور ؟`
+String get forgotPassword {
+  return Intl.message(
+    'هل نسيت كلمة المرور ؟',
+    name: 'forgotPassword',
+    desc: '',
+    args: [],
+  );
+}
+
+/// `لا تمتلك حساب ؟`
+String get noAccount {
+  return Intl.message(
+    'لا تمتلك حساب ؟',
+    name: 'noAccount',
+    desc: '',
+    args: [],
+  );
+}
+
+/// `سجل الان`
+String get signUpNow {
+  return Intl.message(
+    'سجل الان',
+    name: 'signUpNow',
+    desc: '',
+    args: [],
+  );
+}
+
+/// `أو`
+String get or {
+  return Intl.message(
+    'أو',
+    name: 'or',
+    desc: '',
+    args: [],
+  );
+}
+
+/// `تسجيل بواسطة Google`
+String get loginWithGoogle {
+  return Intl.message(
+    'تسجيل بواسطة Google',
+    name: 'loginWithGoogle',
+    desc: '',
+    args: [],
+  );
+}
+
+/// `تسجيل بواسطة Facebook`
+String get loginWithFacebook {
+  return Intl.message(
+    'تسجيل بواسطة Facebook',
+    name: 'loginWithFacebook',
+    desc: '',
+    args: [],
+  );
+}
+
+/// `تسجيل بواسطة Apple`
+String get loginWithApple {
+  return Intl.message(
+    'تسجيل بواسطة Apple',
+    name: 'loginWithApple',
+    desc: '',
+    args: [],
+  );
+}
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   const AppLocalizationDelegate();

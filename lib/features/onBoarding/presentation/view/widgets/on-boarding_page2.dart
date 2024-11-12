@@ -1,9 +1,10 @@
 import 'package:e_commerce/core/services/shared_preferences.dart';
+import 'package:e_commerce/core/utils/common/elvated_button.dart';
 import 'package:e_commerce/core/utils/constants/assets.dart';
 import 'package:e_commerce/core/utils/constants/constants.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
-import 'package:e_commerce/features/login/presentation/view/login.dart';
+import 'package:e_commerce/features/login/presentation/view/login_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -55,24 +56,13 @@ class OnboardingPage2 extends StatelessWidget {
             bottom: 50,
             left: 20,
             right: 20,
-            child: ElevatedButton(
-              onPressed: () {
-                Prefs.setBool(KIsOnboardingViewSeen, true);
+            child: CustomElevatedButton(onPressed: () {
+              Prefs.setBool(KIsOnboardingViewSeen, true);
 
                 Navigator.pushReplacementNamed(context, LoginView.routeName);
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-              ),
-              child: Text(
-                S.current!.start,
-                style: getBoldStyle(
-                    fontFamily: FontConstant.cairo, fontSize: FontSize.size18),
-              ),
-            ),
+            }, buttonText: S.current!.start,
+            
+            )
           ),
         ],
       ),
