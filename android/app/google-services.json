@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "482308073899",
+    "project_id": "fruitecommerce-20c5c",
+    "storage_bucket": "fruitecommerce-20c5c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482308073899:android:6036d47597dd103a694aee",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqMNEY7Hq-VISsYHrX7NDyFxRTW8Voqng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
