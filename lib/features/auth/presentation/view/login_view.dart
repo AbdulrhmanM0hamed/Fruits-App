@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/utils/common/custom_app_bar.dart';
 
-import 'package:e_commerce/features/login/presentation/view/widgets/login_view_body.dart';
+import 'package:e_commerce/features/auth/presentation/view/widgets/login_view_body.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 

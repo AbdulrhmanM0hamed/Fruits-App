@@ -1,7 +1,7 @@
 import 'package:e_commerce/core/utils/constants/colors.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
-import 'package:e_commerce/features/login/presentation/view/signup_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/signup_view.dart';
 import 'package:flutter/material.dart';
 
 class DontHaveAccount extends StatelessWidget {

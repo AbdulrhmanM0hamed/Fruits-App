@@ -1,7 +1,7 @@
-import 'package:e_commerce/features/login/presentation/view/forget_password.dart';
-import 'package:e_commerce/features/login/presentation/view/login_view.dart';
-import 'package:e_commerce/features/login/presentation/view/signup_view.dart';
-import 'package:e_commerce/features/login/presentation/view/verification_code_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/forget_password.dart';
+import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/signup_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/verification_code_view.dart';
 import 'package:e_commerce/features/onBoarding/presentation/view/on-boarding_view.dart';
 import 'package:e_commerce/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';

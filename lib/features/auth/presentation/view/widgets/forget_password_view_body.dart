@@ -1,7 +1,7 @@
 import 'package:e_commerce/core/utils/common/custom_text_form_field.dart';
 import 'package:e_commerce/core/utils/common/elvated_button.dart';
 import 'package:e_commerce/core/utils/constants/values_manger.dart';
-import 'package:e_commerce/features/login/presentation/view/verification_code_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/verification_code_view.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPasswordViewBody extends StatelessWidget {

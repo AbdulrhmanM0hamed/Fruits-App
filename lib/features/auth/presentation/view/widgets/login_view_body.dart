@@ -5,10 +5,10 @@ import 'package:e_commerce/core/utils/constants/colors.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
 import 'package:e_commerce/core/utils/constants/values_manger.dart';
-import 'package:e_commerce/features/login/presentation/view/forget_password.dart';
-import 'package:e_commerce/features/login/presentation/view/widgets/custom_divider.dart';
-import 'package:e_commerce/features/login/presentation/view/widgets/dont_have_account.dart';
-import 'package:e_commerce/features/login/presentation/view/widgets/social_buttons_login.dart';
+import 'package:e_commerce/features/auth/presentation/view/forget_password.dart';
+import 'package:e_commerce/features/auth/presentation/view/widgets/custom_divider.dart';
+import 'package:e_commerce/features/auth/presentation/view/widgets/dont_have_account.dart';
+import 'package:e_commerce/features/auth/presentation/view/widgets/social_buttons_login.dart';
 import 'package:e_commerce/generated/l10n.dart';
 
 import 'package:flutter/material.dart';

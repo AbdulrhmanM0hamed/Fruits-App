@@ -3,8 +3,8 @@ import 'package:e_commerce/core/utils/common/elvated_button.dart';
 import 'package:e_commerce/core/utils/constants/colors.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
-import 'package:e_commerce/features/login/presentation/view/login_view.dart';
-import 'package:e_commerce/features/login/presentation/view/widgets/custom_check_box.dart';
+import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/widgets/custom_check_box.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
