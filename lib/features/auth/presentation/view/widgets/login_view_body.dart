@@ -25,17 +25,17 @@ class LoginViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-             CustomTextFormField(
-              hintText: S.current.email,
-              icon: const Icon(Icons.email),
-            ),
-            const SizedBox(
-              height: AppSize.s18,
-            ),
-             CustomTextFormField(
-              hintText: S.current.password,
-              icon:const Icon(Icons.remove_red_eye),
-            ),
+            //  CustomTextFormField(
+            //   hintText: S.current.email,
+            //   icon: const Icon(Icons.email),
+            // ),
+            // const SizedBox(
+            //   height: AppSize.s18,
+            // ),
+            //  CustomTextFormField(
+            //   hintText: S.current.password,
+            //   icon:const Icon(Icons.remove_red_eye),
+            // ),
             const SizedBox(
               height: AppSize.s18,
             ),

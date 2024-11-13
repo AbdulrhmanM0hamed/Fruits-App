@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/helpers_functions/on_genrated_routes.dart';
+import 'package:e_commerce/core/services/service_locator.dart';
 import 'package:e_commerce/core/services/shared_preferences.dart';
 import 'package:e_commerce/core/utils/theme/theme.dart';
 import 'package:e_commerce/features/splash/presentation/view/splash_view.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
+  setupServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();
  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

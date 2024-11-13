@@ -16,10 +16,11 @@ class ForgetPasswordViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-        const  CustomTextFormField(
-            hintText: "ادخل رقم الهاتف ", 
-            icon:  Icon(Icons.phone),
-          ),
+        // const  CustomTextFormField(
+          
+        //     hintText: "ادخل رقم الهاتف ", 
+        //     icon:  Icon(Icons.phone),
+        //   ),
           const SizedBox(height: AppSize.s20),
           CustomElevatedButton(
             onPressed: () {
