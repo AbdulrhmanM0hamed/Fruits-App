@@ -1,3 +1,4 @@
+import 'package:e_commerce/core/helpers_functions/build_error_method.dart';
 import 'package:e_commerce/core/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,17 +14,11 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignUpCubit, SignUpState>(
       listener: (context, state) {
         if (state is SignUpFailureState) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              backgroundColor: TColors.error,
-              content: Text(state.errorMessage),
-            ),
-          );
+          buildErroMessage(context, state.errorMessage);
         }
         if (state is SignUpSuccesState) {
           ScaffoldMessenger.of(context).showSnackBar(
-
-            SnackBar(
+          const  SnackBar(
               backgroundColor: TColors.success,
               content: Text('تم التسجيل بنجاح'),
             ),
@@ -34,8 +29,10 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         return ModalProgressHUD( 
           inAsyncCall: state is SignUpLoadingState ? true : false,
-           child: SignupViewBody()); 
+           child:const SignupViewBody()); 
       },
     );
   }
+
+
 }
