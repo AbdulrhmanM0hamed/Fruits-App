@@ -1,5 +1,6 @@
 import 'package:e_commerce/core/utils/common/custom_text_form_field.dart';
 import 'package:e_commerce/core/utils/common/elvated_button.dart';
+import 'package:e_commerce/core/utils/common/password_field.dart';
 import 'package:e_commerce/core/utils/constants/colors.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
@@ -20,8 +21,8 @@ class SignupViewBody extends StatefulWidget {
 class _SignupViewBodyState extends State<SignupViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-late  String email, password, userName;
-
+  late String email, password, userName;
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
     // Get the screen size
@@ -45,25 +46,23 @@ late  String email, password, userName;
               CustomTextFormField(
                 onSaved: (value) => userName = value!,
                 hintText: S.current.fullName,
-                icon: const Icon(Icons.person),
+                suffixIcon: const Icon(Icons.person),
               ),
               SizedBox(height: screenHeight * 0.02), // Responsive spacing
               CustomTextFormField(
                 onSaved: (value) => email = value!,
                 hintText: S.current.email,
-                icon:const Icon(Icons.email),
+                suffixIcon: const Icon(Icons.email),
               ),
               SizedBox(height: screenHeight * 0.02), // Responsive spacing
-              CustomTextFormField(
+              PasswordField(
                 onSaved: (value) => password = value!,
-                hintText: S.current.password,
-                icon:const Icon(Icons.remove_red_eye),
               ),
               SizedBox(height: screenHeight * 0.03), // Responsive spacing
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                 const CustomCheckBox(),
+                  const CustomCheckBox(),
                   Expanded(
                     child: Text.rich(
                       TextSpan(
@@ -92,59 +91,59 @@ late  String email, password, userName;
                 ],
               ),
               SizedBox(height: screenHeight * 0.03), // Responsive spacing
-          
+
               CustomElevatedButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      context.read<SignUpCubit>().createUserWithEmailAndPassword(
-                        userName,
-                        email,
-                        password,
-                      );
+                      context
+                          .read<SignUpCubit>()
+                          .createUserWithEmailAndPassword(
+                            userName,
+                            email,
+                            password,
+                          );
                       // Perform form submission logic here
                     } else {
                       setState(() {
                         autovalidateMode = AutovalidateMode.always;
                       });
                     }
-                  }, buttonText: "إنشاء حساب جديد"),
-          
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "لديك حساب بالفعل؟",
-                        style: getSemiBoldStyle(
-                          fontFamily: FontConstant.cairo,
-                          fontSize: FontSize.size16, // Responsive font size
-                          color: TColors.textSecondary,
-                        ),
+                  },
+                  buttonText: "إنشاء حساب جديد"),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "لديك حساب بالفعل؟",
+                    style: getSemiBoldStyle(
+                      fontFamily: FontConstant.cairo,
+                      fontSize: FontSize.size16, // Responsive font size
+                      color: TColors.textSecondary,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, LoginView.routeName);
+                    },
+                    child: Text(
+                      "تسجيل الدخول",
+                      style: getSemiBoldStyle(
+                        fontFamily: FontConstant.cairo,
+                        fontSize: FontSize.size16, // Responsive font size
+                        color: TColors.primary,
                       ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(
-                            context, LoginView.routeName
-                          );
-                        },
-                        child: Text(
-                          "تسجيل الدخول",
-                          style: getSemiBoldStyle(
-                            fontFamily: FontConstant.cairo,
-                            fontSize: FontSize.size16, // Responsive font size
-                            color: TColors.primary,
-                          ),
-                        ),
-                      ),
-          
-                    ],
-                  )
+                    ),
+                  ),
+                ],
+              )
             ],
-          
           ),
         ),
       ),
     );
   }
 }
+
 

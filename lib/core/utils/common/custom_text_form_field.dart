@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key, required this.hintText, required this.icon, required this.onSaved});
+  const CustomTextFormField({super.key, required this.hintText, required this.suffixIcon, required this.onSaved,  this.obsacureText= false,    });
   final String hintText;
-  final Icon icon  ; 
+  final Widget? suffixIcon;
  final  void Function(String?)? onSaved ;
+ final bool obsacureText ; 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obsacureText,
       onSaved: onSaved ,
       validator: (value){
         if(value!.isEmpty){
@@ -17,7 +19,7 @@ class CustomTextFormField extends StatelessWidget {
       },
       decoration: InputDecoration(
         hintText:hintText ,
-        suffixIcon: icon ,
+        suffixIcon: suffixIcon ,
       ),
     );
   }
