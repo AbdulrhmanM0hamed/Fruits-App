@@ -7,6 +7,8 @@ import 'package:e_commerce/core/utils/constants/styles_manger.dart';
 import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/view_model/signin_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/custom_check_box.dart';
+import 'package:e_commerce/features/auth/presentation/view/widgets/hava_an_account.dart';
+import 'package:e_commerce/features/auth/presentation/view/widgets/terms_and_condition.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,8 +24,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email, password, userName;
-  bool _obscureText = true;
-  bool isAgreed = false; // متغير لتتبع الموافقة على الشروط
+  bool isAgreed = false; 
 
   @override
   Widget build(BuildContext context) {
@@ -64,34 +65,11 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                     initialValue: isAgreed,
                     onChanged: (value) {
                       setState(() {
-                        isAgreed = value ?? false;
+                        isAgreed = value ;
                       });
                     },
                   ),
-                  Expanded(
-                    child: Text.rich(
-                      TextSpan(
-                        text: "من خلال إنشاء حساب، فإنك توافق على ",
-                        style: getSemiBoldStyle(
-                          fontFamily: FontConstant.cairo,
-                          fontSize: FontSize.size14,
-                          color: TColors.textSecondary,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: "الشروط والأحكام الخاصة بنا",
-                            style: getSemiBoldStyle(
-                              fontFamily: FontConstant.cairo,
-                              fontSize: FontSize.size14,
-                              color: TColors.primary,
-                            ),
-                          ),
-                        ],
-                      ),
-                      textAlign: TextAlign.start,
-                      overflow: TextOverflow.clip,
-                    ),
-                  ),
+                  TermsAndConditons(),
                 ],
               ),
               SizedBox(height: screenHeight * 0.03),
@@ -122,32 +100,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 },
                 buttonText: "إنشاء حساب جديد",
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "لديك حساب بالفعل؟",
-                    style: getSemiBoldStyle(
-                      fontFamily: FontConstant.cairo,
-                      fontSize: FontSize.size16,
-                      color: TColors.textSecondary,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, LoginView.routeName);
-                    },
-                    child: Text(
-                      "تسجيل الدخول",
-                      style: getSemiBoldStyle(
-                        fontFamily: FontConstant.cairo,
-                        fontSize: FontSize.size16,
-                        color: TColors.primary,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              HavaAnAccount(),
             ],
           ),
         ),
@@ -155,3 +108,4 @@ class _SignupViewBodyState extends State<SignupViewBody> {
     );
   }
 }
+
