@@ -4,7 +4,7 @@ import 'package:e_commerce/core/utils/constants/assets.dart';
 import 'package:e_commerce/core/utils/constants/constants.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
-import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/signin_view.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -59,7 +59,7 @@ class OnboardingPage2 extends StatelessWidget {
             child: CustomElevatedButton(onPressed: () {
               Prefs.setBool(KIsOnboardingViewSeen, true);
 
-                Navigator.pushReplacementNamed(context, LoginView.routeName);
+                Navigator.pushReplacementNamed(context, SigninView.routeName);
             }, buttonText: S.current.start,
             
             )

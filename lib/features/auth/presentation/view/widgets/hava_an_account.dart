@@ -1,7 +1,7 @@
 import 'package:e_commerce/core/utils/constants/colors.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
-import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/signin_view.dart';
 import 'package:flutter/material.dart';
 
 class HavaAnAccount extends StatelessWidget {
@@ -24,7 +24,7 @@ class HavaAnAccount extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, LoginView.routeName);
+            Navigator.pushNamed(context, SigninView.routeName);
           },
           child: Text(
             "تسجيل الدخول",

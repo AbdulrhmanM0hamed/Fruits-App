@@ -1,5 +1,5 @@
 import 'package:e_commerce/features/auth/presentation/view/forget_password.dart';
-import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
+import 'package:e_commerce/features/auth/presentation/view/signin_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/signup_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/verification_code_view.dart';
 import 'package:e_commerce/features/onBoarding/presentation/view/on-boarding_view.dart';
@@ -20,9 +20,9 @@ Route<dynamic> onGenratedRoutes(RouteSettings settings)
       return MaterialPageRoute(
       builder: (context) => const OnBoardingView(),
     );
-     case LoginView.routeName:
+     case SigninView.routeName:
       return MaterialPageRoute(
-      builder: (context) => const LoginView(),
+      builder: (context) => const SigninView(),
     );
     case SignupView.routeName:
     return MaterialPageRoute(

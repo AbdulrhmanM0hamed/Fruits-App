@@ -1,26 +1,31 @@
 import 'package:e_commerce/core/services/firebase_auth_sevice.dart';
 import 'package:e_commerce/features/auth/data/repo_impl/auth_repo_impl.dart';
 import 'package:e_commerce/features/auth/domain/repo/auth_repo.dart';
+import 'package:e_commerce/features/auth/presentation/view/view_model/signin_cubit/sign_in_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/view/view_model/signup_cubit/sign_up_cubit.dart';
 import 'package:get_it/get_it.dart';
 
-final getIt = GetIt.instance;
+final sl = GetIt.instance;
 
 void setupServiceLocator() {
   // Auth
 
-  getIt.registerLazySingleton<FirebaseAuthService>(() => FirebaseAuthService());
+  sl.registerLazySingleton<FirebaseAuthService>(() => FirebaseAuthService());
 
 // تسجيل AuthRepoImpl باستخدام FirebaseAuthService
-  getIt.registerLazySingleton<AuthRepo>(
+  sl.registerLazySingleton<AuthRepo>(
     () => AuthRepoImpl(
-      firebaseAuthService: getIt(),
+      firebaseAuthService: sl(),
     ),
   );
 
 // تسجيل SignUpCubit باستخدام AuthRepo
-  getIt.registerLazySingleton<SignUpCubit>(
-    () => SignUpCubit(getIt()),
+  sl.registerLazySingleton<SignUpCubit>(
+    () => SignUpCubit(sl()),
+  );
+
+  sl.registerLazySingleton<SignInCubit>(
+    () => SignInCubit(sl()),
   );
 
   // getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
