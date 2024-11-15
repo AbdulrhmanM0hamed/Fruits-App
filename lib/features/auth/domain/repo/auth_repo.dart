@@ -6,5 +6,6 @@ import 'package:e_commerce/features/auth/domain/entities/user_entity.dart';
 
 
   Future<Either<Failuer , UserEntity>> createUserWithEmailAndPassword(String name, String email, String password) ;
+  Future<Either<Failuer , UserEntity>> signInWithEmailAndPassword(String email, String password) ;
   
 }

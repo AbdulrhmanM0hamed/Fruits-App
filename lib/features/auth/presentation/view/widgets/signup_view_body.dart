@@ -1,11 +1,7 @@
 import 'package:e_commerce/core/utils/common/custom_text_form_field.dart';
 import 'package:e_commerce/core/utils/common/elvated_button.dart';
 import 'package:e_commerce/core/utils/common/password_field.dart';
-import 'package:e_commerce/core/utils/constants/colors.dart';
-import 'package:e_commerce/core/utils/constants/font_manger.dart';
-import 'package:e_commerce/core/utils/constants/styles_manger.dart';
-import 'package:e_commerce/features/auth/presentation/view/login_view.dart';
-import 'package:e_commerce/features/auth/presentation/view/view_model/signin_cubit/sign_up_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/view/view_model/signup_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/custom_check_box.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/hava_an_account.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/terms_and_condition.dart';
@@ -69,7 +65,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                       });
                     },
                   ),
-                  TermsAndConditons(),
+              const    TermsAndConditons(),
                 ],
               ),
               SizedBox(height: screenHeight * 0.03),
@@ -91,7 +87,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                   } else {
                     // عرض Snackbar إذا لم يقم المستخدم بالموافقة
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                   const   SnackBar(
                         content: Text('يرجى الموافقة على الشروط والأحكام قبل المتابعة.'),
                         backgroundColor: Colors.red,
                       ),
@@ -100,7 +96,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
                 },
                 buttonText: "إنشاء حساب جديد",
               ),
-              HavaAnAccount(),
+            const  HavaAnAccount(),
             ],
           ),
         ),

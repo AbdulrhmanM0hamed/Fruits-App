@@ -16,12 +16,28 @@ class AuthRepoImpl implements AuthRepo {
   Future<Either<Failuer, UserEntity>> createUserWithEmailAndPassword(
       String name, String email, String password) async {
     try {
-      var user = await firebaseAuthService.createUserWithEmailAndPassword(email, password);
+      var user = await firebaseAuthService.createUserWithEmailAndPassword(
+          email, password);
       return right(UserModel.fromfirebaseUSer(user));
     } on CustomException catch (e) {
       return left(ServerFailure(errMessage: e.message));
     } catch (e) {
       log('createUserWithEmailAndPassword: $e');
+      return left(ServerFailure(errMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failuer, UserEntity>> signInWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      var user =
+          await firebaseAuthService.signInWithEmailAndPassword(email, password);
+      return right(UserModel.fromfirebaseUSer(user));
+    } on CustomException catch (e) {
+      return left(ServerFailure(errMessage: e.message));
+    } catch (e) {
+      log('signInWithEmailAndPassword: $e');
       return left(ServerFailure(errMessage: e.toString()));
     }
   }

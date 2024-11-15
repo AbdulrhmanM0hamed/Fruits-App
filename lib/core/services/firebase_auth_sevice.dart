@@ -11,14 +11,17 @@ class FirebaseAuthService {
       );
       return credential.user!;
     } on FirebaseAuthException catch (e) {
-      // تسجيل الأخطاء بمزيد من التفصيل
       log('FirebaseAuthException occurred: ${e.code} - ${e.message}');
       
       if (e.code == 'weak-password') {
         throw CustomException(message: "كلمة المرور ضعيفة");
       } else if (e.code == 'email-already-in-use') {
         throw CustomException(message: "البريد الالكترونى موجود مسبقاً");
-      } else {
+      }
+      else if (e.code == 'network-request-failed') {
+        throw CustomException(message: "لا يوجد اتصال بالانترنت");
+      }
+       else {
         throw CustomException(message: "حدث خطأ ما، يرجى المحاولة مرة أخرى");
       }
     } catch (e) {
@@ -43,8 +46,12 @@ class FirebaseAuthService {
       if (e.code == 'user-not-found') {
         throw CustomException(message: "البريد الالكترونى غير موجود");
       } else if (e.code == 'wrong-password') {
-        throw CustomException(message: "كلمة المرور غير صحيحة");
-      } else {
+        throw CustomException(message: " البريد الالكترونى أو كلمة المرور غير صحيح");
+      } 
+       else if (e.code == 'network-request-failed') {
+        throw CustomException(message: "لا يوجد اتصال بالانترنت");
+      }
+      else {
         throw CustomException(message: "حدث خطأ ما، يرجى المحاولة مرة أخرى");
       }
     } catch (e) {
