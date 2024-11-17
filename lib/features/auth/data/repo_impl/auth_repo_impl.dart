@@ -49,7 +49,7 @@ class AuthRepoImpl implements AuthRepo {
       return right(UserModel.fromfirebaseUSer(user));
     }  catch (e) {
       log('signInWithGoogle: $e');
-      return left(ServerFailure(errMessage: e.toString()));
+      return left(ServerFailure(errMessage: 'حدث خطأ ما'));
     }
 
     
