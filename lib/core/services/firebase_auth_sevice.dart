@@ -2,6 +2,7 @@ import 'dart:developer'; // لاستيراد log
 
 import 'package:e_commerce/core/error/excptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseAuthService {
   Future<User> createUserWithEmailAndPassword(String email, String password) async {
@@ -61,4 +62,16 @@ class FirebaseAuthService {
       throw CustomException(message: "حدث خطأ ما، يرجى المحاولة مرة أخرى");
     }
   }
+ Future<User> signInWithGoogle() async {
+  final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+  final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+  final credential = GoogleAuthProvider.credential(
+    accessToken: googleAuth?.accessToken,
+    idToken: googleAuth?.idToken,
+  );
+
+  return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
+}
 }

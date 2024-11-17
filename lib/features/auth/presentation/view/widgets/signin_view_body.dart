@@ -90,7 +90,11 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               ),
           const    CustomDivider(),
               const SizedBox(height: AppSize.s20), 
-          const    SocailButtonsLogin(),
+              SocailButtonsLogin(
+            onPressed: () {
+              context.read<SignInCubit>().signInWithGoogle();
+            },
+          ),
             ],
           ),
         ),
