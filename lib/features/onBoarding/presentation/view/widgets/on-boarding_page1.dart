@@ -52,7 +52,7 @@ class OnboardingPage1 extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      S.current.welcome,
+                      S.current!.welcome,
                       style: getBoldStyle(
                           fontFamily: FontConstant.cairo,
                           fontSize: FontSize.size24),
@@ -81,7 +81,7 @@ class OnboardingPage1 extends StatelessWidget {
                 ),
                 const SizedBox(height: AppSize.s16),
                 Text(
-                  S.current.Subtitle1,
+                  S.current!.Subtitle1,
                   style: getRegularStyle(
                       fontFamily: FontConstant.cairo,
                       fontSize: FontSize.size16,

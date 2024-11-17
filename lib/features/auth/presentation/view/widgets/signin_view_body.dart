@@ -27,6 +27,7 @@ class SigninViewBody extends StatefulWidget {
 class _SigninViewBodyState extends State<SigninViewBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
    AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+   
   late String email , password ; 
 
   @override
@@ -43,7 +44,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                CustomTextFormField(
 
                  onSaved: (value) =>   email = value! ,
-                hintText: S.current.email,
+                hintText: S.current!.email,
                 suffixIcon: const Icon(Icons.email),
               ),
               const SizedBox(
@@ -61,7 +62,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                   Navigator.pushNamed(context, ForgotPasswordView.routeName);
                 },
                 child: Text(
-                  S.current.forgotPassword,
+                  S.current!.forgotPassword,
                   style: getSemiBoldStyle(fontFamily: FontConstant.cairo, fontSize: FontSize.size14, color: TColors.primary),
                 ),
               ),
@@ -79,7 +80,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                     
                   });
                 }
-              }, buttonText: S.current.login,),
+              }, buttonText: S.current!.login,),
               const SizedBox(
                 height: AppSize.s20,
               ),

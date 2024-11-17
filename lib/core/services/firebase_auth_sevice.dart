@@ -1,4 +1,5 @@
 import 'dart:developer'; // لاستيراد log
+
 import 'package:e_commerce/core/error/excptions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -12,7 +13,7 @@ class FirebaseAuthService {
       return credential.user!;
     } on FirebaseAuthException catch (e) {
       log('FirebaseAuthException occurred: ${e.code} - ${e.message}');
-      
+    
       if (e.code == 'weak-password') {
         throw CustomException(message: "كلمة المرور ضعيفة");
       } else if (e.code == 'email-already-in-use') {

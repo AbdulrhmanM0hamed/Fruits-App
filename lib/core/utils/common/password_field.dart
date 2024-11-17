@@ -23,7 +23,7 @@ class _PasswordFieldState extends State<PasswordField> {
     return CustomTextFormField(
       obsacureText: _obscureText, // تمرير قيمة _obscureText
       onSaved: widget.onSaved, // تمرير onSaved
-      hintText: S.current.password,
+      hintText: S.current!.password,
       suffixIcon: GestureDetector(
         onTap: () {
           setState(() {
