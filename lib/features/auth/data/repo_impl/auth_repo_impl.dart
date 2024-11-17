@@ -54,4 +54,15 @@ class AuthRepoImpl implements AuthRepo {
 
     
   }
-}
+  
+  @override
+  Future<Either<Failuer, UserEntity>> signInWithFacebook() async {
+    try {
+      var user = await firebaseAuthService.signInWithFacebook();
+      return right(UserModel.fromfirebaseUSer(user));
+    }  catch (e) {
+      log('signInWithFacebook: $e');
+      return left(ServerFailure(errMessage: 'حدث خطأ ما'));
+    }
+    
+}}

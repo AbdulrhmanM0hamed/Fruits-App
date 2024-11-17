@@ -2,6 +2,7 @@
 import 'package:e_commerce/core/utils/common/custom_text_form_field.dart';
 import 'package:e_commerce/core/utils/common/elvated_button.dart';
 import 'package:e_commerce/core/utils/common/password_field.dart';
+import 'package:e_commerce/core/utils/constants/assets.dart';
 import 'package:e_commerce/core/utils/constants/colors.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
@@ -10,7 +11,7 @@ import 'package:e_commerce/features/auth/presentation/view/forget_password.dart'
 import 'package:e_commerce/features/auth/presentation/view/view_model/signin_cubit/sign_in_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/custom_divider.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/dont_have_account.dart';
-import 'package:e_commerce/features/auth/presentation/view/widgets/social_buttons_login.dart';
+import 'package:e_commerce/features/auth/presentation/view/widgets/socail_button.dart';
 import 'package:e_commerce/generated/l10n.dart';
 
 import 'package:flutter/material.dart';
@@ -90,11 +91,31 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               ),
           const    CustomDivider(),
               const SizedBox(height: AppSize.s20), 
-              SocailButtonsLogin(
-            onPressed: () {
-              context.read<SignInCubit>().signInWithGoogle();
-            },
-          ),
+             Column(
+      children: [
+        SocialButton(
+          onPressed: () {
+            context.read<SignInCubit>().signInWithGoogle();
+          },
+          buttonText: "تسجيل بواسطة Google",
+          iconPath: AssetsManager.googleIcon,
+        ),
+        const SizedBox(height: AppSize.s12),
+        SocialButton(
+          onPressed: () {
+            context.read<SignInCubit>().signInWithFacebook();
+          },
+          buttonText: "تسجيل بواسطة Facebook",
+          iconPath: AssetsManager.facebookIcon,
+        ),
+        const SizedBox(height: AppSize.s12),
+        SocialButton(
+          onPressed: () {},
+          buttonText: "تسجيل بواسطة Apple",
+          iconPath: AssetsManager.appleIcon,
+        ),
+      ],
+    ),
             ],
           ),
         ),
