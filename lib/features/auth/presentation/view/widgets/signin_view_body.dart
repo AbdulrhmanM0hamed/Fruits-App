@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:e_commerce/core/utils/common/custom_text_form_field.dart';
 import 'package:e_commerce/core/utils/common/elvated_button.dart';
 import 'package:e_commerce/core/utils/common/password_field.dart';
@@ -109,11 +111,17 @@ class _SigninViewBodyState extends State<SigninViewBody> {
           iconPath: AssetsManager.facebookIcon,
         ),
         const SizedBox(height: AppSize.s12),
-        SocialButton(
+      // Platform.isIOS ?  SocialButton(
+      //     onPressed: () {},
+      //     buttonText: "تسجيل بواسطة Apple",
+      //     iconPath: AssetsManager.appleIcon,
+      //   ) : const SizedBox(),
+       SocialButton(
           onPressed: () {},
           buttonText: "تسجيل بواسطة Apple",
           iconPath: AssetsManager.appleIcon,
-        ),
+        ) 
+      
       ],
     ),
             ],

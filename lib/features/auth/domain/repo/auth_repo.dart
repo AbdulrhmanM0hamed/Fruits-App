@@ -9,5 +9,5 @@ import 'package:e_commerce/features/auth/domain/entities/user_entity.dart';
   Future<Either<Failuer , UserEntity>> signInWithEmailAndPassword(String email, String password) ;
   Future<Either<Failuer , UserEntity>> signInWithGoogle() ;
   Future<Either<Failuer , UserEntity>> signInWithFacebook() ;
-  
+  Future  addUserData({required UserEntity userEntity}) ;
 }

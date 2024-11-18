@@ -1,4 +1,6 @@
+import 'package:e_commerce/core/services/database_service.dart';
 import 'package:e_commerce/core/services/firebase_auth_sevice.dart';
+import 'package:e_commerce/core/services/firestore_service.dart';
 import 'package:e_commerce/features/auth/data/repo_impl/auth_repo_impl.dart';
 import 'package:e_commerce/features/auth/domain/repo/auth_repo.dart';
 import 'package:e_commerce/features/auth/presentation/view/view_model/signin_cubit/sign_in_cubit.dart';
@@ -11,11 +13,16 @@ void setupServiceLocator() {
   // Auth
 
   sl.registerLazySingleton<FirebaseAuthService>(() => FirebaseAuthService());
+  sl.registerLazySingleton<DatabaseService>(() => FirestoreService());
+
 
 // تسجيل AuthRepoImpl باستخدام FirebaseAuthService
   sl.registerLazySingleton<AuthRepo>(
     () => AuthRepoImpl(
+      sl(),
       firebaseAuthService: sl(),
+      
+      
     ),
   );
 
