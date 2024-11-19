@@ -24,18 +24,26 @@ class AuthRepoImpl implements AuthRepo {
     try {
       var user = await firebaseAuthService.createUserWithEmailAndPassword(
           email, password);
-          var userEntity = UserModel.fromfirebaseUSer(user) ;
+          var userEntity = UserEntity(
+            email: email,
+            name: name,
+            id: user.uid,
+          );
           addUserData(userEntity: userEntity) ;
       return right(userEntity);
     } on CustomException catch (e) {
-      if (user != null)  {
-        await firebaseAuthService.deleteUser();
-        
-      }
+      await deleteUser(user);
       return left(ServerFailure(errMessage: e.message));
     } catch (e) {
       log('createUserWithEmailAndPassword: $e');
       return left(ServerFailure(errMessage: e.toString()));
+    }
+  }
+
+  Future<void> deleteUser(User? user) async {
+      if (user != null)  {
+      await firebaseAuthService.deleteUser();
+      
     }
   }
 
@@ -56,10 +64,14 @@ class AuthRepoImpl implements AuthRepo {
   
   @override
   Future<Either<Failuer, UserEntity>> signInWithGoogle() async {
+    User? user;
     try {
       var user = await firebaseAuthService.signInWithGoogle();
+      var userEntity = UserModel.fromfirebaseUSer(user);
+      addUserData(userEntity: userEntity);
       return right(UserModel.fromfirebaseUSer(user));
     }  catch (e) {
+      await deleteUser(user);
       log('signInWithGoogle: $e');
       return left(ServerFailure(errMessage: 'حدث خطأ ما'));
     }
@@ -69,10 +81,14 @@ class AuthRepoImpl implements AuthRepo {
   
   @override
   Future<Either<Failuer, UserEntity>> signInWithFacebook() async {
+    User? user;
     try {
       var user = await firebaseAuthService.signInWithFacebook();
+        var userEntity = UserModel.fromfirebaseUSer(user);
+      addUserData(userEntity: userEntity);
       return right(UserModel.fromfirebaseUSer(user));
     }  catch (e) {
+      await deleteUser(user);
       log('signInWithFacebook: $e');
       return left(ServerFailure(errMessage: 'حدث خطأ ما'));
     }
