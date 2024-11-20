@@ -1,11 +1,13 @@
 
 import 'dart:io';
 
+import 'package:e_commerce/core/services/shared_preferences.dart';
 import 'package:e_commerce/core/utils/common/custom_text_form_field.dart';
 import 'package:e_commerce/core/utils/common/elvated_button.dart';
 import 'package:e_commerce/core/utils/common/password_field.dart';
 import 'package:e_commerce/core/utils/constants/assets.dart';
 import 'package:e_commerce/core/utils/constants/colors.dart';
+import 'package:e_commerce/core/utils/constants/constants.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
 import 'package:e_commerce/core/utils/constants/values_manger.dart';
@@ -73,6 +75,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
                 height: AppSize.s40,
               ),
               CustomElevatedButton(onPressed: () {
+                Prefs.setBool(KIsloginSuccess, true);
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
                  context.read<SignInCubit>().signInWithEmailAndPassword(email, password);
