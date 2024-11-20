@@ -1,7 +1,9 @@
+
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/core/services/database_service.dart';
-import 'package:e_commerce/features/auth/data/models/user_model.dart';
-import 'package:e_commerce/features/auth/domain/entities/user_entity.dart';
+
 
 class FirestoreService implements DatabaseService {
   final db = FirebaseFirestore.instance;
@@ -23,5 +25,16 @@ class FirestoreService implements DatabaseService {
   Future<Map<String , dynamic>> getData({required String path, required String documentId}) async {
    var data =  await db.collection(path).doc(documentId).get()  ;
    return data.data() as Map<String, dynamic  > ;
+}
+
+  @override
+Future<bool> isUserExist({required String path, required String documentId}) async {
+  try {
+    var docSnapshot = await db.collection(path).doc(documentId).get();
+    return docSnapshot.exists; // يعيد true إذا كان المستند موجودًا، و false إذا لم يكن موجودًا
+  } catch (e) {
+    log('Error checking if user exists: $e');
+    return false;
+  }
 }
 }

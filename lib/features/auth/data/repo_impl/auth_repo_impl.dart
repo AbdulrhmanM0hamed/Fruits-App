@@ -69,7 +69,13 @@ class AuthRepoImpl implements AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithGoogle();
       var userEntity = UserModel.fromfirebaseUSer(user);
-      addUserData(userEntity: userEntity);
+      var isUserExist = await databaseService.isUserExist(path: BackendEndpoint.users, documentId: user.uid);
+      if (!isUserExist) {
+        await addUserData(userEntity: userEntity);
+      }else{
+        await getUserData(userId: user.uid);
+      }
+      
       return right(UserModel.fromfirebaseUSer(user));
     } catch (e) {
       await deleteUser(user);
@@ -84,7 +90,12 @@ class AuthRepoImpl implements AuthRepo {
     try {
       var user = await firebaseAuthService.signInWithFacebook();
       var userEntity = UserModel.fromfirebaseUSer(user);
-      addUserData(userEntity: userEntity);
+      var isUserExist = await databaseService.isUserExist(path: BackendEndpoint.users, documentId: user.uid);
+      if (!isUserExist) {
+        await addUserData(userEntity: userEntity);
+      }else{
+        await getUserData(userId: user.uid);
+      }
       return right(UserModel.fromfirebaseUSer(user));
     } catch (e) {
       await deleteUser(user);
