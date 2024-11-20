@@ -1,6 +1,8 @@
+import 'package:e_commerce/core/services/shared_preferences.dart';
 import 'package:e_commerce/core/utils/common/custom_text_form_field.dart';
 import 'package:e_commerce/core/utils/common/elvated_button.dart';
 import 'package:e_commerce/core/utils/common/password_field.dart';
+import 'package:e_commerce/core/utils/constants/constants.dart';
 import 'package:e_commerce/features/auth/presentation/view/controller/signup_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/custom_check_box.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/hava_an_account.dart';
@@ -71,6 +73,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               SizedBox(height: screenHeight * 0.03),
               CustomElevatedButton(
                 onPressed: () {
+                 Prefs.setBool(KIsloginSuccess, true);
                   if (isAgreed) {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
