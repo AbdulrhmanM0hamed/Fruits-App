@@ -1,8 +1,9 @@
 import 'package:e_commerce/core/helpers_functions/build_error_method.dart';
 import 'package:e_commerce/core/utils/constants/colors.dart';
+import 'package:e_commerce/features/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:e_commerce/features/auth/presentation/view/view_model/signup_cubit/sign_up_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/view/controller/signup_cubit/sign_up_cubit.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'signup_view_body.dart'; // Ensure the correct path is imported
 
@@ -17,6 +18,7 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
           buildErroMessage(context, state.errorMessage);
         }
         if (state is SignUpSuccesState) {
+          Navigator.pushNamed(context, HomeView.routeName);
           ScaffoldMessenger.of(context).showSnackBar(
           const  SnackBar(
               backgroundColor: TColors.success,

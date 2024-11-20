@@ -10,7 +10,7 @@ import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
 import 'package:e_commerce/core/utils/constants/values_manger.dart';
 import 'package:e_commerce/features/auth/presentation/view/forget_password.dart';
-import 'package:e_commerce/features/auth/presentation/view/view_model/signin_cubit/sign_in_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/view/controller/signin_cubit/sign_in_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/custom_divider.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/dont_have_account.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/socail_button.dart';

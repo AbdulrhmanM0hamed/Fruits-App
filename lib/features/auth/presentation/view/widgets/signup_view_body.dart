@@ -1,7 +1,7 @@
 import 'package:e_commerce/core/utils/common/custom_text_form_field.dart';
 import 'package:e_commerce/core/utils/common/elvated_button.dart';
 import 'package:e_commerce/core/utils/common/password_field.dart';
-import 'package:e_commerce/features/auth/presentation/view/view_model/signup_cubit/sign_up_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/view/controller/signup_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/custom_check_box.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/hava_an_account.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/terms_and_condition.dart';

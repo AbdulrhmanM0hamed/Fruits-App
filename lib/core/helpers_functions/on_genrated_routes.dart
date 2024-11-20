@@ -2,6 +2,7 @@ import 'package:e_commerce/features/auth/presentation/view/forget_password.dart'
 import 'package:e_commerce/features/auth/presentation/view/signin_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/signup_view.dart';
 import 'package:e_commerce/features/auth/presentation/view/verification_code_view.dart';
+import 'package:e_commerce/features/home/presentation/view/home_view.dart';
 import 'package:e_commerce/features/onBoarding/presentation/view/on-boarding_view.dart';
 import 'package:e_commerce/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,11 @@ Route<dynamic> onGenratedRoutes(RouteSettings settings)
      case VerificationCodeView.routeName:
     return MaterialPageRoute(
       builder: (context) => const VerificationCodeView(),
+    );
+
+    case HomeView.routeName:
+    return MaterialPageRoute(
+      builder: (context) => const HomeView(),
     );
     default:
     return MaterialPageRoute(

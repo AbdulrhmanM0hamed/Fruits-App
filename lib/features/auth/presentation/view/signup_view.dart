@@ -1,6 +1,6 @@
 import 'package:e_commerce/core/services/service_locator.dart';
 import 'package:e_commerce/core/utils/common/custom_app_bar.dart';
-import 'package:e_commerce/features/auth/presentation/view/view_model/signup_cubit/sign_up_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/view/controller/signup_cubit/sign_up_cubit.dart';
 import 'package:e_commerce/features/auth/presentation/view/widgets/signup_view_body_bloc_consumer.dart';
 import 'package:e_commerce/generated/l10n.dart';
 import 'package:flutter/material.dart';

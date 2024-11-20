@@ -18,27 +18,37 @@ class AuthRepoImpl implements AuthRepo {
   AuthRepoImpl(this.databaseService, {required this.firebaseAuthService});
 
   @override
-  Future<Either<Failuer, UserEntity>> createUserWithEmailAndPassword(
-      String name, String email, String password) async {
-    User? user;
-    try {
-      var user = await firebaseAuthService.createUserWithEmailAndPassword(
-          email, password);
-      var userEntity = UserEntity(
-        email: email,
-        name: name,
-        id: user.uid,
-      );
-      addUserData(userEntity: userEntity);
-      return right(userEntity);
-    } on CustomException catch (e) {
-      await deleteUser(user);
-      return left(ServerFailure(errMessage: e.message));
-    } catch (e) {
-      log('createUserWithEmailAndPassword: $e');
-      return left(ServerFailure(errMessage: e.toString()));
+@override
+Future<Either<Failuer, UserEntity>> createUserWithEmailAndPassword(
+    String name, String email, String password) async {
+  User? user;
+  try {
+    user = await firebaseAuthService.createUserWithEmailAndPassword(email, password);
+    var userEntity = UserEntity(
+      email: email,
+      name: name,
+      id: user.uid,
+    );
+
+    var isUserExist = await databaseService.isUserExist(
+        path: BackendEndpoint.users, documentId: user.uid);
+
+    if (!isUserExist) {
+      await addUserData(userEntity: userEntity);
     }
+    var fetchedUser = await getUserData(userId: user.uid);
+    return right(fetchedUser);
+    
+
+  } on CustomException catch (e) {
+    await deleteUser(user); 
+    return left(ServerFailure(errMessage: e.message));
+  } catch (e) {
+    log('createUserWithEmailAndPassword: $e');
+    return left(ServerFailure(errMessage: e.toString()));
   }
+}
+
 
   Future<void> deleteUser(User? user) async {
     if (user != null) {

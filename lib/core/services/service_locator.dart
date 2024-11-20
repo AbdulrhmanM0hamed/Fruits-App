@@ -3,8 +3,8 @@ import 'package:e_commerce/core/services/firebase_auth_sevice.dart';
 import 'package:e_commerce/core/services/firestore_service.dart';
 import 'package:e_commerce/features/auth/data/repo_impl/auth_repo_impl.dart';
 import 'package:e_commerce/features/auth/domain/repo/auth_repo.dart';
-import 'package:e_commerce/features/auth/presentation/view/view_model/signin_cubit/sign_in_cubit.dart';
-import 'package:e_commerce/features/auth/presentation/view/view_model/signup_cubit/sign_up_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/view/controller/signin_cubit/sign_in_cubit.dart';
+import 'package:e_commerce/features/auth/presentation/view/controller/signup_cubit/sign_up_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
