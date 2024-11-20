@@ -26,7 +26,7 @@ class CustomHomeAppBar extends StatelessWidget {
             style: getBoldStyle(
                 fontFamily: FontConstant.cairo,
                 fontSize: 18,
-                color: TColors.black),
+                color: Theme.of(context).brightness == Brightness.dark ? TColors.white : TColors.black,),
           ),
         ],
       ),
