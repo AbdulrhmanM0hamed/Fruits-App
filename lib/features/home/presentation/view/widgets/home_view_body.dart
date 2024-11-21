@@ -1,3 +1,4 @@
+import 'package:e_commerce/features/home/presentation/view/widgets/custom_list_view.dart';
 import 'package:e_commerce/features/home/presentation/view/widgets/custom_text_field.dart';
 import 'package:e_commerce/features/home/presentation/view/widgets/discount_widget.dart';
 import 'package:flutter/widgets.dart';
@@ -14,7 +15,6 @@ class HomeViewBody extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: CustomHomeAppBar(),
-            
           ),
           SliverToBoxAdapter(
             child: SizedBox(height: 16,),
@@ -22,11 +22,11 @@ class HomeViewBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: CustomTextField(),
           ),
-           SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: SizedBox(height: 16,),
           ),
           SliverToBoxAdapter(
-            child: DiscountBanner(),
+            child: CustomListViewDiscountWidget(),
           ),
         ],
       ),

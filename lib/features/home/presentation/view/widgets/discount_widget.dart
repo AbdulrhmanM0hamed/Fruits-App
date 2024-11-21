@@ -1,6 +1,7 @@
 import 'package:e_commerce/core/utils/constants/colors.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
+import 'package:e_commerce/features/home/presentation/view/widgets/custom_discount_button.dart';
 import 'package:flutter/material.dart';
 
 class DiscountBanner extends StatelessWidget {
@@ -11,9 +12,9 @@ class DiscountBanner extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Container(
-        height: 150,
+        height: 170,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16), // تطبيق الراديوس بشكل موحد
+          borderRadius: BorderRadius.circular(8), 
         ),
         child: Stack(
           children: [
@@ -21,19 +22,18 @@ class DiscountBanner extends StatelessWidget {
             Positioned.fill(
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(8), // تطبيق الراديوس على الجانبين الأيسر
+                  topLeft: Radius.circular(8), 
                   bottomLeft: Radius.circular(8),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(right: 10),
                   child: Image.asset(
-                    'assets/images/testFruit.jpg', // استبدل بمسار الصورة
-                    fit: BoxFit.fill, // تأكد من أن الصورة تغطي المساحة بالكامل
+                    'assets/images/testFruit.jpg',
+                    fit: BoxFit.cover, 
                   ),
                 ),
               ),
             ),
-            // الجزء الخاص باللون الأخضر
             ClipPath(
               clipper: GreenCurveClipper(),
               child: Container(
@@ -54,25 +54,16 @@ class DiscountBanner extends StatelessWidget {
                   
                     children: [
                      
-                      const SizedBox(height: 6),
-                      const Text(
+                      
+                       Text(
                         "عروض العيد",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.normal,
-                        ),
+                       style: getSemiBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size18),
                       ),
-                      const SizedBox(height: 6),
-                       const Text(
+                      const SizedBox(height: 25),
+                        Text(
                         "خصم 25%",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: getBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size18),
                       ),
-                      const SizedBox(height: 6),
                       const SizedBox(height: 8),
                      CustomDiscountButton(
                         onPressed: () {},
@@ -110,45 +101,3 @@ class GreenCurveClipper extends CustomClipper<Path> {
 }
 
 
-class CustomDiscountButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final String buttonText;
-
-  const CustomDiscountButton({
-    Key? key,
-    required this.onPressed,
-    required this.buttonText,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed, // عند الضغط على الزر، استدعاء onPressed
-      child: Container(
-        width: 120, // تحديد عرض الزر
-        height: 40, // تحديد ارتفاع الزر
-        decoration: BoxDecoration(
-          color: TColors.white, // خلفية الزر
-          borderRadius: BorderRadius.circular(6), // راديوس الزر
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1), 
-              offset: Offset(0, 2), 
-              blurRadius: 4, // مدى تأثير الظل
-            ),
-          ],
-        ),
-        child: Center(
-          child: Text(
-            buttonText, // نص الزر
-            style: getBoldStyle(
-              fontFamily: FontConstant.cairo, 
-              fontSize: FontSize.size16, 
-              color: TColors.primaryDark,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}

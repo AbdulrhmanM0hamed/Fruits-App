@@ -5,7 +5,7 @@ class TColors{
 TColors._();
 // App Basic Colors
 static const Color primary = Color.fromARGB(255, 70, 146, 65);
-static const Color primaryDark = Color.fromARGB(255, 37, 78, 34);
+static const Color primaryDark = Color.fromARGB(255, 55, 112, 51);
 
 static const Color secondary = Color (0xFFFFE24B);
 static const Color accent = Color (0xFFb0c7ff);
@@ -47,7 +47,7 @@ static const Color success = Color (0xFF388E3C);
 static const Color warning = Color (0xFFF57000);
 static const Color info = Color (0xFF1976D2);
 // Neutral Shades
-static const Color black = Color (0xFF232323);
+static const Color black = Color.fromARGB(255, 0, 0, 0);
 static const Color darkerGrey = Color (0xFF4F4F4F);
 static const Color darkGrey = Color (0xFF939393);
 static const Color grey = Color (0xFFE0E0E0);
