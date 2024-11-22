@@ -10,9 +10,9 @@ class DiscountBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
       child: Container(
-        height: 170,
+        height: 180,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8), 
         ),
@@ -37,7 +37,6 @@ class DiscountBanner extends StatelessWidget {
             ClipPath(
               clipper: GreenCurveClipper(),
               child: Container(
-                
                 width: 200,
                 decoration: BoxDecoration(
                   color: Colors.green,
@@ -53,13 +52,12 @@ class DiscountBanner extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                   
                     children: [
-                     
                       
                        Text(
                         "عروض العيد",
                        style: getSemiBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size18),
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 35),
                         Text(
                         "خصم 25%",
                         style: getBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size18),

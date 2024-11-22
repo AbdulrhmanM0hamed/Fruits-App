@@ -8,6 +8,10 @@ static const Color primary = Color.fromARGB(255, 70, 146, 65);
 static const Color primaryDark = Color.fromARGB(255, 55, 112, 51);
 
 static const Color secondary = Color (0xFFFFE24B);
+static const Color pound = Color.fromARGB(255, 238, 185, 10);
+static const Color kilo = Color.fromARGB(255, 216, 188, 97);
+
+
 static const Color accent = Color (0xFFb0c7ff);
 
 
