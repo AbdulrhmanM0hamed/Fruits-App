@@ -1,3 +1,5 @@
+import 'package:e_commerce/core/helpers_functions/get_user_data.dart';
+import 'package:e_commerce/core/services/shared_preferences.dart';
 import 'package:e_commerce/core/utils/constants/colors.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
@@ -22,7 +24,7 @@ class CustomHomeAppBar extends StatelessWidget {
                 color: TColors.darkGrey),
           ),
           Text(
-            "عبدالرحمن محمد ",
+            getUserData().name,
             style: getBoldStyle(
                 fontFamily: FontConstant.cairo,
                 fontSize: 18,

@@ -49,7 +49,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                 width: 25,
                 height: 25,
               ),
-          title: Text('الرئيسية' , style: getSemiBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size14),),
+          title: Text('الرئيسية' , style: getBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size12),),
           activeColor: TColors.primary,
         ),
         BottomNavyBarItem(
@@ -71,7 +71,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                 width: 25,
                 height: 25,
               ),
-          title: Text('المنتجات' , style: getSemiBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size14),),
+          title: Text('المنتجات' , style: getBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size12),),
           activeColor: TColors.primary,
         ),
         BottomNavyBarItem(
@@ -93,7 +93,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                 width: 25,
                 height: 25,
               ),
-          title: Text('عربة التسوق' , style: getSemiBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size14),),
+          title: Text('سلة التسوق' , style: getBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size12),),
           activeColor: TColors.primary,
         ),
         BottomNavyBarItem(
@@ -115,7 +115,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                 width: 25,
                 height: 25,
               ),
-          title: Text('الملف الشخصي' , style: getSemiBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size14),),
+          title: Text(' حسابى' , style: getBoldStyle(fontFamily: FontConstant.cairo , fontSize: FontSize.size12),),
           activeColor: TColors.primary,
         ),
       ],

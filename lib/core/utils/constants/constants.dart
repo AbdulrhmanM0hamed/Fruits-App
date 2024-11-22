@@ -1,5 +1,8 @@
 
 
-const String KIsOnboardingViewSeen = "isOnboardingViewSeen";
-const String KIsloginSuccess = "IsloginSuccess";
+const  KIsOnboardingViewSeen = "isOnboardingViewSeen";
+const  KIsloginSuccess = "IsloginSuccess";
+const  KUserData = "KUserData";
+
+
 

@@ -1,10 +1,13 @@
-import 'dart:developer'; // لاستيراد الدالة log
+import 'dart:convert';
+import 'dart:developer'; 
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/error/excptions.dart';
 import 'package:e_commerce/core/error/sevcice_failure.dart';
 import 'package:e_commerce/core/services/database_service.dart';
 import 'package:e_commerce/core/services/firebase_auth_sevice.dart';
+import 'package:e_commerce/core/services/shared_preferences.dart';
 import 'package:e_commerce/core/utils/constants/backEnd_Endpoint.dart';
+import 'package:e_commerce/core/utils/constants/constants.dart';
 import 'package:e_commerce/features/auth/data/models/user_model.dart';
 import 'package:e_commerce/features/auth/domain/entities/user_entity.dart';
 import 'package:e_commerce/features/auth/domain/repo/auth_repo.dart';
@@ -116,8 +119,9 @@ Future<Either<Failuer, UserEntity>> createUserWithEmailAndPassword(
 
   @override
   Future addUserData({required UserEntity userEntity}) async {
+
     await databaseService.addData(
-        path: BackendEndpoint.users, data: userEntity.toMap() , documentId: userEntity.id);
+        path: BackendEndpoint.users, data: UserModel.fromEntity(userEntity).toMap(), documentId: userEntity.id);
   }
 
   @override
@@ -127,4 +131,12 @@ Future<Either<Failuer, UserEntity>> createUserWithEmailAndPassword(
 
     return UserModel.fromJson(getdata);
   }
+  
+  @override
+  Future saveUserData({required UserEntity userEntity}) async {
+  var jsonData = jsonEncode(UserModel.fromEntity(userEntity).toMap());
+  print('Saving user data: $jsonData');
+  await Prefs.setString(KUserData, jsonData);
+}
+
 }

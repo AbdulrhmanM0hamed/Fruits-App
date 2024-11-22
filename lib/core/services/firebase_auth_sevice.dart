@@ -10,6 +10,7 @@ class FirebaseAuthService {
     Future deleteUser() async {
       await FirebaseAuth.instance.currentUser!.delete();
     }
+
   Future<User> createUserWithEmailAndPassword( String email, String password) async {
     try {
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -48,9 +49,7 @@ class FirebaseAuthService {
       );
       return credential.user!;
     } on FirebaseAuthException catch (e) {
-      // تسجيل الأخطاء بمزيد من التفصيل
       log('FirebaseAuthException occurred: ${e.code} - ${e.message}');
-
       if (e.code == 'user-not-found') {
         throw CustomException(message: "البريد الالكترونى غير موجود");
       } else if (e.code == 'wrong-password') {
@@ -63,7 +62,6 @@ class FirebaseAuthService {
         throw CustomException(message: "حدث خطأ ما، يرجى المحاولة مرة أخرى");
       }
     } catch (e) {
-      // تسجيل أي أخطاء عامة
       log('Unexpected error occurred: ${e.toString()}');
       throw CustomException(message: "حدث خطأ ما، يرجى المحاولة مرة أخرى");
     }

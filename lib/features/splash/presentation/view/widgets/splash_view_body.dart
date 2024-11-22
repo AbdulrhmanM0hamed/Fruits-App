@@ -46,7 +46,7 @@ void initState() {
   bool isOnboardingViewSeen = Prefs.getBool(KIsOnboardingViewSeen);
    Future.delayed(const Duration(seconds: 2), () {
     if (isOnboardingViewSeen && IsloginSuccess) {
-  Navigator.pushReplacementNamed( context, HomeView.routeName);
+  Navigator.pushReplacementNamed( context,SigninView.routeName);
   
 }
 else if (isOnboardingViewSeen) {
