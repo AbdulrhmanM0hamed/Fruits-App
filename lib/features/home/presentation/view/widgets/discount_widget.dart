@@ -18,7 +18,6 @@ class DiscountBanner extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            // الجزء الخاص بالصورة
             Positioned.fill(
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
