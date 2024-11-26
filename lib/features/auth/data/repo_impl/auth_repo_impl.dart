@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'dart:developer'; 
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce/core/error/excptions.dart';
 import 'package:e_commerce/core/error/sevcice_failure.dart';
@@ -35,12 +36,14 @@ Future<Either<Failuer, UserEntity>> createUserWithEmailAndPassword(
 
     var isUserExist = await databaseService.isUserExist(
         path: BackendEndpoint.users, documentId: user.uid);
+    
 
     if (!isUserExist) {
       await addUserData(userEntity: userEntity);
     }
     var fetchedUser = await getUserData(userId: user.uid);
-    return right(fetchedUser);
+     await saveUserData(user: userEntity);
+     return right(fetchedUser);
     
 
   } on CustomException catch (e) {
@@ -59,23 +62,29 @@ Future<Either<Failuer, UserEntity>> createUserWithEmailAndPassword(
     }
   }
 
-  @override
-  Future<Either<Failuer, UserEntity>> signInWithEmailAndPassword(
+Future<Either<Failuer, UserEntity>> signInWithEmailAndPassword(
       String email, String password) async {
     try {
-      var user =
-          await firebaseAuthService.signInWithEmailAndPassword(email, password);
-
-      var userEntity = await getUserData(userId: user.uid);
-      return right(userEntity);
+      var user = await firebaseAuthService.signInWithEmailAndPassword(
+           email, password);
+      var userEntity = await getUserData(userId:  user.uid);
+      await saveUserData(user: userEntity);
+      return right(
+        userEntity,
+      );
     } on CustomException catch (e) {
       return left(ServerFailure(errMessage: e.message));
     } catch (e) {
-      log('signInWithEmailAndPassword: $e');
-      return left(ServerFailure(errMessage: e.toString()));
+      log(
+        'Exception in AuthRepoImpl.createUserWithEmailAndPassword: ${e.toString()}',
+      );
+      return left(
+        ServerFailure( errMessage: 
+          'حدث خطأ ما. الرجاء المحاولة مرة اخرى.',
+        ),
+      );
     }
   }
-
   @override
   Future<Either<Failuer, UserEntity>> signInWithGoogle() async {
     User? user;
@@ -133,10 +142,10 @@ Future<Either<Failuer, UserEntity>> createUserWithEmailAndPassword(
   }
   
   @override
-  Future saveUserData({required UserEntity userEntity}) async {
-  var jsonData = jsonEncode(UserModel.fromEntity(userEntity).toMap());
-  print('Saving user data: $jsonData');
-  await Prefs.setString(KUserData, jsonData);
-}
+  Future saveUserData({required UserEntity user}) async {
+    var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
+    await Prefs.setString(KUserData, jsonData);
+  }
+  
 
 }

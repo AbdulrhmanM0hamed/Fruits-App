@@ -1,4 +1,3 @@
-import 'package:e_commerce/core/utils/constants/colors.dart';
 import 'package:e_commerce/core/utils/constants/font_manger.dart';
 import 'package:e_commerce/core/utils/constants/styles_manger.dart';
 import 'package:e_commerce/features/home/presentation/view/widgets/custom_discount_button.dart';

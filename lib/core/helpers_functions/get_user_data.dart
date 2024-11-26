@@ -7,8 +7,10 @@ import 'package:e_commerce/features/auth/domain/entities/user_entity.dart';
 
 UserEntity getUserData() {
   var jsonString = Prefs.getString(KUserData);
-
-
-  var userEntity = UserModel.fromJson(jsonDecode(jsonString!));
-  return userEntity;
+  if (jsonString != null) {
+    var userEntity = UserModel.fromJson(jsonDecode(jsonString));
+    return userEntity;
+  } else {
+    return UserEntity(id: '', name: 'ِAbdo', email: '');
+  }
 }

@@ -11,6 +11,6 @@ import 'package:e_commerce/features/auth/domain/entities/user_entity.dart';
   Future<Either<Failuer , UserEntity>> signInWithFacebook() ;
   Future  addUserData({required UserEntity userEntity}) ;
   Future<UserEntity> getUserData( {required String userId}) ;
-  Future saveUserData( {required UserEntity userEntity}) ;
+  Future saveUserData({required UserEntity user});
 
 }
